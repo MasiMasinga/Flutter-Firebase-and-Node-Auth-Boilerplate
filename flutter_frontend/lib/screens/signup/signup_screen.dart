@@ -19,7 +19,6 @@ class SignUpScreen extends StatelessWidget {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final TextEditingController confirmPasswordController = TextEditingController();
 
     final nodeProvider = Provider.of<NodeProvider>(context, listen: false);
 
@@ -89,19 +88,6 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 10.0, horizontal: 20.0),
-                child: TextFormField(
-                  controller: confirmPasswordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Confirm Password',
-                    hintText: 'Confirm your password',
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-              ),
               Center(
                 child: SizedBox(
                   width: 325,
@@ -114,7 +100,6 @@ class SignUpScreen extends StatelessWidget {
                             nameController.text.trim(),
                             emailController.text.trim(),
                             passwordController.text.trim(),
-                            confirmPasswordController.text.trim(),
                           );
                           // ignore: use_build_context_synchronously
                           ScaffoldMessenger.of(context).showSnackBar(
