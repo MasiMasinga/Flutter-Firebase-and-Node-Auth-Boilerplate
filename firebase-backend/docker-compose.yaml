@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    ports:
+      - '5000:5000'
+    environment:
+      - DB_HOST=flutter-auth-nodejs.cm9zrnzyiktd.af-south-1.rds.amazonaws.com
+      - DB_USER=admin
+      - DB_PASSWORD=admin123
+      - DB_NAME=flutter-auth-nodejs
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+      - MYSQL_DATABASE=flutter-auth-nodejs
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
